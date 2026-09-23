@@ -24,7 +24,10 @@ class PrayerTimesServiceProvider extends ServiceProvider
         $this->app->register(ViewServiceProvider::class);
 
         Event::listen('bagisto.admin.dashboard.overall_details.before', function ($viewRenderEventManager) {
-            if (class_exists(NebulaPlugin::class) && ! NebulaPlugin::isActive('prayer-times')) {
+            if (
+                class_exists(NebulaPlugin::class)
+                && ! NebulaPlugin::isActive('prayer-times')
+            ) {
                 return;
             }
 
@@ -32,7 +35,10 @@ class PrayerTimesServiceProvider extends ServiceProvider
         });
 
         Event::listen('bagisto.shop.layout.body.after', function ($viewRenderEventManager) {
-            if (class_exists(NebulaPlugin::class) && ! NebulaPlugin::isActive('prayer-times')) {
+            if (
+                class_exists(NebulaPlugin::class)
+                && ! NebulaPlugin::isActive('prayer-times')
+            ) {
                 return;
             }
 
